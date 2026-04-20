@@ -46,7 +46,7 @@ from magika import Magika
 m = Magika()
 result = m.identify_path("document.pdf")
 print(result.output.ct_label)  # e.g. "pdf"
-print(result.output.score)     # confidence score
+print(result.output.score)     # confidence score (0.0 – 1.0)
 ```
 
 ### Batch detection
@@ -85,6 +85,10 @@ pytest python/tests/
 # Lint
 ruff check python/
 ```
+
+## Notes
+
+> **Personal note:** I'm using this fork primarily to experiment with the Python API for a file-triage script. The upstream project moves fast — check [google/magika](https://github.com/google/magika) for the latest model updates.
 
 ## License
 
