@@ -62,6 +62,20 @@ for path, result in zip(paths, results):
     print(f"{path}: {result.output.ct_label} ({result.output.score:.2f})")
 ```
 
+### Filtering low-confidence results
+
+When using Magika in a triage script, it's useful to skip results where the model isn't confident:
+
+```python
+MIN_CONFIDENCE = 0.60  # ignore results below this threshold
+
+for path, result in zip(paths, results):
+    if result.output.score < MIN_CONFIDENCE:
+        print(f"{path}: uncertain (score={result.output.score:.2f}), skipping")
+        continue
+    print(f"{path}: {result.output.ct_label} ({result.output.score:.2f})")
+```
+
 ## Docker
 
 ```bash
