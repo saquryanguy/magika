@@ -67,7 +67,9 @@ for path, result in zip(paths, results):
 When using Magika in a triage script, it's useful to skip results where the model isn't confident:
 
 ```python
-MIN_CONFIDENCE = 0.60  # ignore results below this threshold
+# Raised from 0.60 to 0.75 — I found too many false positives at the lower
+# threshold when scanning mixed downloads folders with truncated files.
+MIN_CONFIDENCE = 0.75
 
 for path, result in zip(paths, results):
     if result.output.score < MIN_CONFIDENCE:
