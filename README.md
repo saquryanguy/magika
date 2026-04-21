@@ -106,6 +106,8 @@ ruff check python/
 ## Notes
 
 > **Personal note:** I'm using this fork primarily to experiment with the Python API for a file-triage script. The upstream project moves fast — check [google/magika](https://github.com/google/magika) for the latest model updates.
+>
+> **Tip:** When scanning a large directory recursively, piping through `tee` is handy: `magika --recursive ./dir | tee results.txt` — lets you review output live and keep a log.
 
 ## License
 
